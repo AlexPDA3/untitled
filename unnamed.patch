@@ -1,0 +1,268 @@
+Index: .idea/description.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/description.html	(date 1576957731713)
++++ .idea/description.html	(date 1576957731713)
+@@ -0,0 +1,1 @@
++<html>Simple <b>Java</b> application that includes a class with <code>main()</code> method</html>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(date 1576957746065)
++++ .idea/misc.xml	(date 1576957746065)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectKey">
++    <option name="state" value="project://e2804f05-5315-4fc6-a121-c522a6c26470" />
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(date 1576965811326)
++++ .idea/vcs.xml	(date 1576965811326)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/project-template.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/project-template.xml	(date 1576957731739)
++++ .idea/project-template.xml	(date 1576957731739)
+@@ -0,0 +1,3 @@
++<template>
++  <input-field default="com.company">IJ_BASE_PACKAGE</input-field>
++</template>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/modules.xml	(date 1576957820699)
++++ .idea/modules.xml	(date 1576957820699)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/Lab6.iml" filepath="$PROJECT_DIR$/Lab6.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: src/com/alex/tarasik/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/alex/tarasik/Main.java	(date 1576963242336)
++++ src/com/alex/tarasik/Main.java	(date 1576963242336)
+@@ -0,0 +1,16 @@
++package com.alex.tarasik;
++
++import javax.crypto.BadPaddingException;
++import javax.crypto.IllegalBlockSizeException;
++import javax.crypto.NoSuchPaddingException;
++import java.security.InvalidKeyException;
++import java.security.NoSuchAlgorithmException;
++import java.util.Scanner;
++
++public class Main {
++
++    public static void main(String[] args) throws InvalidKeyException, BadPaddingException, NoSuchAlgorithmException, IllegalBlockSizeException, NoSuchPaddingException {
++
++        new Menu(new Scanner(System.in)).start();
++    }
++}
+Index: src/com/alex/tarasik/Menu.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/alex/tarasik/Menu.java	(date 1576966618049)
++++ src/com/alex/tarasik/Menu.java	(date 1576966618049)
+@@ -0,0 +1,54 @@
++package com.alex.tarasik;
++
++import javax.crypto.BadPaddingException;
++import javax.crypto.IllegalBlockSizeException;
++import javax.crypto.NoSuchPaddingException;
++import java.security.InvalidKeyException;
++import java.security.NoSuchAlgorithmException;
++import java.util.Scanner;
++
++public class Menu {
++
++    private final Scanner scanner;
++
++    public Menu(Scanner scanner) {
++        this.scanner = scanner;
++    }
++
++    private void printMenu() {
++        System.out.println("1. Генерация пары ключей алгоритма RSA;");
++        System.out.println("2. Импортировать ключи шифрования;");
++        System.out.println("3. Экспорт ключей шифрования из файла;");
++        System.out.println("4. Подписать документ;");
++        System.out.println("5. Проверить подпись документа;");
++        System.out.println("6. Выход из приложения;");
++    }
++
++    public void start() throws IllegalBlockSizeException, InvalidKeyException, BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException {
++
++        if (this.scanner != null) {
++            int key;
++            do {
++                printMenu();
++                System.out.print("Введите номер меню: ");
++                key = this.scanner.nextInt();
++                switch (key) {
++                    case 1:
++                        RSA rsa = new RSA();
++                        break;
++                    case 2:
++
++                        break;
++                    case 3:
++
++                        break;
++                    case 6:
++                        System.out.println("Завершение программы...");
++                        break;
++                    default:
++                        System.out.println("Вы ввели неверное значение меню...\n");
++                }
++            } while (key != 6);
++        }
++    }
++}
+Index: .idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/encodings.xml	(date 1576957746090)
++++ .idea/encodings.xml	(date 1576957746090)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Encoding">
++    <file url="PROJECT" charset="UTF-8" />
++  </component>
++</project>
+\ No newline at end of file
+Index: src/com/alex/tarasik/RSA.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/alex/tarasik/RSA.java	(date 1576966644324)
++++ src/com/alex/tarasik/RSA.java	(date 1576966644324)
+@@ -0,0 +1,45 @@
++package com.alex.tarasik;
++
++import javax.crypto.BadPaddingException;
++import javax.crypto.Cipher;
++import javax.crypto.IllegalBlockSizeException;
++import javax.crypto.NoSuchPaddingException;
++import java.security.*;
++
++public class RSA {
++
++    public RSA() throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
++
++        Cipher cipher = Cipher.getInstance("RSA");
++
++        KeyPairGenerator pairgen = KeyPairGenerator.getInstance ("RSA");
++        KeyPair keyPair = pairgen.generateKeyPair();
++        Key publicKey = keyPair.getPublic();
++        Key privateKey = keyPair.getPrivate();
++
++        System.out.println("\n");
++        System.out.println(publicKey+"\n");
++        System.out.println(privateKey+"\n");
++
++//        Тестирование шифрования на примере строки
++
++        /*String s = "hello world";
++
++        cipher.init(Cipher.ENCRYPT_MODE, publicKey);
++
++        byte[] bytes = cipher.doFinal(s.getBytes());
++        for(byte b : bytes){
++            System.out.print(b);
++        }
++        System.out.println("\n");
++
++        Cipher decryptCipher = Cipher.getInstance("RSA");
++        decryptCipher.init(Cipher.DECRYPT_MODE, privateKey);
++        byte[] decriptedBytes = decryptCipher.doFinal(bytes);
++
++        for(byte b : decriptedBytes){
++            System.out.print((char)b);
++        }*/
++
++    }
++}
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/.gitignore	(date 1576965787778)
++++ .idea/.gitignore	(date 1576965787778)
+@@ -0,0 +1,2 @@
++# Default ignored files
++/workspace.xml
+\ No newline at end of file
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .gitignore	(date 1576965787920)
++++ .gitignore	(date 1576965787920)
+@@ -0,0 +1,2 @@
++# Project exclude paths
++/out/
+\ No newline at end of file
+Index: Lab6.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Lab6.iml	(date 1576957731772)
++++ Lab6.iml	(date 1576957731772)
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
++
